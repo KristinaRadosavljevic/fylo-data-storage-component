@@ -1,11 +1,19 @@
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap");
 
 // Color variables
-$gradient: linear-gradient(hsl(6, 100%, 80%), hsl(335, 100%, 65%));
+$gradient: linear-gradient(to right, hsl(6, 100%, 80%), hsl(335, 100%, 65%));
 $pale-blue: hsl(243, 100%, 93%);
 $grayish-blue: hsl(229, 7%, 55%);
 $dark-blue: hsl(228, 56%, 26%);
 $very-dark-blue: hsl(229, 57%, 11%);
+$white: hsl(0, 0%, 100%);
+
+// Animation
+@keyframes load {
+  to {
+    width: 81.5%;
+  }
+}
 
 // Global resets
 *,
@@ -59,6 +67,7 @@ header {
   button {
     border: none;
     background-color: $very-dark-blue;
+    border: 2px solid $very-dark-blue;
     height: 3rem;
     width: 3rem;
     border-radius: 0.5rem;
@@ -69,7 +78,64 @@ header {
 
     &:hover {
       cursor: pointer;
+      border: 2px solid $grayish-blue;
+    }
+  }
+}
+
+section {
+  position: relative;
+
+  p {
+    margin-bottom: 1rem;
+  }
+
+  .progress-bar {
+    width: 28rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    justify-content: space-between;
+    row-gap: 0.3rem;
+
+    &__background {
+      grid-column: span 2;
+      width: 99%;
+      height: 1rem;
       background-color: lighten($very-dark-blue, 5%);
+      border-radius: 5rem;
+      margin: 0 auto;
+      padding: 0.15rem;
+    }
+
+    &__current {
+      height: 100%;
+      width: 0.7rem;
+      background: $gradient;
+      border-radius: 5rem;
+      position: relative;
+      animation: load 1.5s forwards ease-out;
+
+      &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        right: 0.1rem;
+        top: 0.1rem;
+        height: calc(100% - 0.18rem);
+        aspect-ratio: 1 / 1;
+        background-color: $white;
+        border-radius: 50%;
+      }
+    }
+
+    span {
+      font-weight: 700;
+      font-size: 0.8rem;
+
+      &:last-child {
+        text-align: right;
+      }
     }
   }
 }
@@ -80,5 +146,6 @@ header {
   *::before,
   *::after {
     transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
   }
 }
