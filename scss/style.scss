@@ -8,10 +8,18 @@ $dark-blue: hsl(228, 56%, 26%);
 $very-dark-blue: hsl(229, 57%, 11%);
 $white: hsl(0, 0%, 100%);
 
-// Animation
+$corner: calc(100% + 1.4rem);
+
+// Animations
 @keyframes load {
   to {
     width: 81.5%;
+  }
+}
+
+@keyframes bubble-pop {
+  to {
+    clip-path: polygon(0 0, 100% 0, 100% $corner, 0 $corner);
   }
 }
 
@@ -114,7 +122,7 @@ section {
       background: $gradient;
       border-radius: 5rem;
       position: relative;
-      animation: load 1.5s forwards ease-out;
+      animation: load 1s forwards ease-out;
 
       &::after {
         content: "";
@@ -136,6 +144,44 @@ section {
       &:last-child {
         text-align: right;
       }
+    }
+  }
+
+  aside {
+    position: absolute;
+    background-color: $white;
+    top: -2.5rem;
+    right: 2.5rem;
+    padding: 0.7rem 1.5rem;
+    border-radius: 0.3rem;
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    clip-path: polygon(100% $corner, 100% $corner, 100% $corner, 100% $corner);
+    animation: bubble-pop 0.7s 0.7s forwards ease-out;
+
+    .number {
+      font-size: 2.3rem;
+      font-weight: 700;
+      color: $very-dark-blue;
+    }
+
+    .label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      color: $grayish-blue;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      bottom: -1.2rem;
+      right: 0;
+      border-right: 1.4rem solid $white;
+      border-bottom: 1.4rem solid transparent;
     }
   }
 }

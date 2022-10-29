@@ -3,6 +3,10 @@
   to {
     width: 81.5%; } }
 
+@keyframes bubble-pop {
+  to {
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% + 1.4rem), 0 calc(100% + 1.4rem)); } }
+
 *,
 *::before,
 *::after {
@@ -83,7 +87,7 @@ section {
       background: linear-gradient(to right, #ffa399, #ff4d97);
       border-radius: 5rem;
       position: relative;
-      animation: load 1.5s forwards ease-out; }
+      animation: load 1s forwards ease-out; }
       section .progress-bar__current::after {
         content: "";
         display: block;
@@ -99,6 +103,36 @@ section {
       font-size: 0.8rem; }
       section .progress-bar span:last-child {
         text-align: right; }
+  section aside {
+    position: absolute;
+    background-color: white;
+    top: -2.5rem;
+    right: 2.5rem;
+    padding: 0.7rem 1.5rem;
+    border-radius: 0.3rem;
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    clip-path: polygon(100% calc(100% + 1.4rem), 100% calc(100% + 1.4rem), 100% calc(100% + 1.4rem), 100% calc(100% + 1.4rem));
+    animation: bubble-pop 0.7s 0.7s forwards ease-out; }
+    section aside .number {
+      font-size: 2.3rem;
+      font-weight: 700;
+      color: #0c122c; }
+    section aside .label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      color: #848794;
+      font-weight: 700;
+      letter-spacing: 1px; }
+    section aside::after {
+      content: "";
+      display: block;
+      position: absolute;
+      bottom: -1.2rem;
+      right: 0;
+      border-right: 1.4rem solid white;
+      border-bottom: 1.4rem solid transparent; }
 
 @media (prefers-reduced-motion: reduce) {
   *,
