@@ -12,7 +12,6 @@ This is a solution to the [Fylo data storage component challenge on Frontend Men
   - [Built with](#built-with)
   - [What I learned](#what-i-learned)
   - [Continued development](#continued-development)
-  - [Useful resources](#useful-resources)
 - [Author](#author)
 
 ## Overview
@@ -29,8 +28,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [See the code on GitHub]()
-- Live Site URL: [View live site]()
+- Solution URL: [See the code on GitHub](https://github.com/KristinaRadosavljevic/fylo-data-storage-component)
+- Live Site URL: [View live site](https://fylo-data-storage-component-liard-one.vercel.app/)
 
 ## My process
 
@@ -38,12 +37,18 @@ Users should be able to:
 
 - Semantic HTML5 markup
 - CSS/Sass
+- Flexbox
+- CSS grid
+- Animations
+- Media queries
 
 ### What I learned
 
+This challenge gave me a chance to practice animations (especially using the `transform` property) and absolute positioning of elements within each other, including the use of psedo-elements such as `::after`.
+
 ### Continued development
 
-### Useful resources
+Pseudo-elements and transformations are a rich source of inspiration when it comes to implementing animations in a project, so in a future challenge I would like to push mysefl even further to get more practice in this area.
 
 ## Author
 
